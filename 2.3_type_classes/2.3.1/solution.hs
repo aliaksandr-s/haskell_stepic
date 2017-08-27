@@ -7,3 +7,9 @@ instance Printable Bool where
 
 instance Printable () where
   toString () = "unit type"
+
+
+-- 2.3.2
+
+instance (Printable a, Printable b) => Printable (a, b) where 
+  toString pair = "(" ++ (toString . fst $ pair) ++ "," ++ (toString . snd $ pair) ++ ")"
