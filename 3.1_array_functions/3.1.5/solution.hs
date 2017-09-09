@@ -1,0 +1,9 @@
+sum3 :: Num a => [a] -> [a] -> [a] -> [a]
+sum3 (h1:t1) (h2:t2) (h3:t3) = (h1 + h2 + h3) : sum3 t1 t2 t3
+sum3 (h1:t1) (h2:t2) [] = (h1 + h2) : sum3 t1 t2 []  
+sum3 (h1:t1) [] (h3:t3) = (h1 + h3) : sum3 t1 t3 []
+sum3 [] (h2:t2) (h3:t3) = (h2 + h3) : sum3 t2 t3 []
+sum3 (h1:t1) [] [] = h1 : sum3 [] [] []  
+sum3 [] (h2:t2) [] = h2 : sum3 [] [] []  
+sum3 [] [] (h3:t3) = h3 : sum3 [] [] []  
+sum3 _ _ _ = []
